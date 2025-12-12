@@ -1,5 +1,3 @@
-print("main.py is running")
-
 from app.data.schema import create_tables
 from app.data.db import connect_database
 from app.data.users import register_user, login_user
