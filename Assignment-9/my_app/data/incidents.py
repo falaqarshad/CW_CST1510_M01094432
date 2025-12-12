@@ -1,4 +1,4 @@
-from app.data.db import connect_database
+from data.db import connect_database
 
 
 def insert_incident(conn, date, incident_type, severity, status, description, reported_by):
@@ -53,3 +53,13 @@ def delete_incident(conn, incident_id):
     )
 
     conn.commit()
+
+import pandas as pd
+
+def get_incidents_by_type_count(conn):
+    query = """
+    SELECT severity AS type, COUNT(*) AS count
+    FROM cyber_incidents
+    GROUP BY severity
+    """
+    return pd.read_sql_query(query, conn)
