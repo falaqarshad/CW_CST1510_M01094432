@@ -1,36 +1,68 @@
-# Multi-Domain Intelligence Platform
+# Unified Intelligence Platform – CST1510 CW2
 
 ## Overview
-This project is a Streamlit-based Multi-Domain Intelligence Platform developed for CST1510.
-It integrates Cybersecurity, Data Science, IT Operations, and AI Assistance using an
-Object-Oriented Programming (OOP) architecture.
+This project is a Multi-Domain Intelligence Platform built using Python and Streamlit.
+It provides analytics and decision support for three domains:
+- Cybersecurity
+- Data Science
+- IT Operations
 
-## Architecture
-The system follows a layered architecture:
+The system demonstrates database usage, OOP design, visual analytics, authentication,
+and AI-assisted insights.
 
-- **Models**: Domain entities (User, SecurityIncident, Dataset, ITTicket)
-- **Services**: Business logic and integrations (DatabaseManager, AuthManager, AIAssistant)
-- **Database**: SQLite database for persistent storage
-- **Pages**: Streamlit UI pages for each domain
-- **AI Integration**: AI Assistant wrapped in a service class
+---
 
-## Key Features
-- Secure user authentication (OOP-based)
-- Cybersecurity incident management
-- Dataset metadata viewing
-- IT ticket tracking
-- AI assistant using service abstraction
-- Full separation of concerns (UI, logic, data)
+## Domains Implemented (Tier 3)
+
+### 1. Cybersecurity – Incident Response Analysis
+**Problem:** Phishing incidents are increasing, causing resolution delays.  
+**Solution:**
+- Incident dashboard with severity and status
+- Identification of phishing bottlenecks
+- Visualisation of incident trends
+- Actionable response recommendations
+
+---
+
+### 2. Data Science – Dataset Governance
+**Problem:** Growing datasets require governance and storage management.  
+**Solution:**
+- Dataset catalog with size, rows, and source
+- Resource consumption analysis
+- Governance recommendations (archiving & policy decisions)
+- Visual dataset comparison
+
+---
+
+### 3. IT Operations – Service Desk Performance
+**Problem:** Slow ticket resolution and uneven staff workload.  
+**Solution:**
+- Ticket overview dashboard
+- Bottleneck detection by status
+- Staff workload analysis
+- Management recommendations for optimisation
+
+---
+
+## AI Assistant
+An integrated AI Assistant provides intelligent, domain-aware insights.
+It responds to questions about:
+- Cybersecurity incidents
+- Dataset governance
+- IT service desk performance
+
+This satisfies the AI integration requirement for Tier 3.
+
+---
 
 ## Technologies Used
 - Python
 - Streamlit
 - SQLite
-- Object-Oriented Programming (OOP)
+- Pandas
+- Matplotlib
 
-## UML Class Diagram
-The following UML diagram shows the object oriented architecture of the system, including domain models and service classes used across the platform.
-![UML Diagram](docs/uml_diagram.png)
+---
 
 ## How to Run
 ```bash
