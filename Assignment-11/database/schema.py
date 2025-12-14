@@ -59,6 +59,17 @@ CREATE TABLE IF NOT EXISTS it_tickets (
 );
 """)
 
+cur.execute("""
+CREATE TABLE IF NOT EXISTS datasets (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    size_bytes INTEGER NOT NULL,
+    rows INTEGER NOT NULL,
+    source TEXT NOT NULL
+) ;
+ """)           
+
+
 conn.commit()
 conn.close()
 

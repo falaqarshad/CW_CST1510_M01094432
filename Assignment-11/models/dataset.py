@@ -1,20 +1,23 @@
 class Dataset:
-    def __init__(self, dataset_id, name, size_mb, rows, source):
-        self._id = dataset_id
-        self._name = name
-        self._size_mb = size_mb
-        self._rows = rows
-        self._source = source
+    """Represents a data science dataset."""
 
-    def get_source(self):
-        return self._source
+    def __init__(self, dataset_id: int, name: str, size_bytes: int, rows: int, source: str):
+        self.__id = dataset_id
+        self.__name = name
+        self.__size_bytes = size_bytes
+        self.__rows = rows
+        self.__source = source
 
-    def get_size(self):
-        return self._size_mb
+    def calculate_size_mb(self) -> float:
+        return self.__size_bytes / (1024 * 1024)
 
-    def get_rows(self):
-        return self._rows
+    def get_rows(self) -> int:
+        return self.__rows
 
-    def __str__(self):
-        return f"{self._name} ({self._size_mb} MB, {self._rows} rows, source={self._source})"
+    def get_source(self) -> str:
+        return self.__source
+
+    def __str__(self) -> str:
+        size_mb = self.calculate_size_mb()
+        return f"{self.__name} ({size_mb:.2f} MB, {self.__rows} rows)"
         

@@ -3,7 +3,9 @@ from typing import Any, Iterable
 
 
 class DatabaseManager:
-    """Handles SQLite database connections and queries."""
+    """
+    Handles SQLite database connections and queries.
+    """
 
     def __init__(self, db_path: str):
         self._db_path = db_path
@@ -19,9 +21,12 @@ class DatabaseManager:
             self._connection = None
 
     def execute_query(self, sql: str, params: Iterable[Any] = ()):
-        """Execute INSERT / UPDATE / DELETE queries."""
+        """
+        Execute INSERT / UPDATE / DELETE queries.
+        """
         if self._connection is None:
             self.connect()
+
         cur = self._connection.cursor()
         cur.execute(sql, tuple(params))
         self._connection.commit()
@@ -30,6 +35,7 @@ class DatabaseManager:
     def fetch_one(self, sql: str, params: Iterable[Any] = ()):
         if self._connection is None:
             self.connect()
+
         cur = self._connection.cursor()
         cur.execute(sql, tuple(params))
         return cur.fetchone()
@@ -37,6 +43,7 @@ class DatabaseManager:
     def fetch_all(self, sql: str, params: Iterable[Any] = ()):
         if self._connection is None:
             self.connect()
+
         cur = self._connection.cursor()
         cur.execute(sql, tuple(params))
         return cur.fetchall()

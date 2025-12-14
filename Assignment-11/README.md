@@ -1,69 +1,100 @@
-# Unified Intelligence Platform – CST1510 CW2
+# Multi-Domain Intelligence Platform – Week 11 (OOP Refactor)
 
 ## Overview
-This project is a Multi-Domain Intelligence Platform built using Python and Streamlit.
-It provides analytics and decision support for three domains:
-- Cybersecurity
-- Data Science
-- IT Operations
+This project is the Week 11 Object-Oriented Programming (OOP) refactor of the
+Multi-Domain Intelligence Platform for CST1510.
 
-The system demonstrates database usage, OOP design, visual analytics, authentication,
-and AI-assisted insights.
+The focus of Week 11 is improving software architecture by:
+- Introducing entity classes (models)
+- Separating business logic into service classes
+- Refactoring procedural code into clean OOP design
 
----
-
-## Domains Implemented (Tier 3)
-
-### 1. Cybersecurity – Incident Response Analysis
-**Problem:** Phishing incidents are increasing, causing resolution delays.  
-**Solution:**
-- Incident dashboard with severity and status
-- Identification of phishing bottlenecks
-- Visualisation of incident trends
-- Actionable response recommendations
+The application is built using Python, Streamlit, and SQLite.
 
 ---
 
-### 2. Data Science – Dataset Governance
-**Problem:** Growing datasets require governance and storage management.  
-**Solution:**
-- Dataset catalog with size, rows, and source
-- Resource consumption analysis
-- Governance recommendations (archiving & policy decisions)
-- Visual dataset comparison
+## Project Structure
+
+multi_domain_platform/
+├── models/
+│   ├── user.py
+│   ├── security_incident.py
+│   ├── dataset.py
+│   └── it_ticket.py
+│
+├── services/
+│   ├── database_manager.py
+│   ├── auth_manager.py
+│   └── ai_assistant.py
+│
+├── database/
+│   └── platform.db
+│
+├── pages/
+│   ├── 1_Login.py
+│   ├── 2_Cybersecurity.py
+│   ├── 3_Data_Science.py
+│   ├── 4_IT_Operations.py
+│   └── 5_AI_Assistant.py
+│
+├── Home.py
+├── requirements.txt
+├── README.md
+└── .gitignore
 
 ---
 
-### 3. IT Operations – Service Desk Performance
-**Problem:** Slow ticket resolution and uneven staff workload.  
-**Solution:**
-- Ticket overview dashboard
-- Bottleneck detection by status
-- Staff workload analysis
-- Management recommendations for optimisation
+## OOP Design
+
+### Models
+Each domain entity is implemented as a Python class using:
+- Private attributes
+- Constructors
+- Getter methods
+- __str__() for readable output
+
+Entities:
+- User
+- SecurityIncident
+- Dataset
+- ITTicket
 
 ---
 
-## AI Assistant
-An integrated AI Assistant provides intelligent, domain-aware insights.
-It responds to questions about:
-- Cybersecurity incidents
-- Dataset governance
-- IT service desk performance
+### Services
+Service classes handle application logic:
 
-This satisfies the AI integration requirement for Tier 3.
+- DatabaseManager  
+  Manages all SQLite connections and queries.
+
+- AuthManager  
+  Handles user authentication and password verification.
+
+- AIAssistant  
+  Encapsulates AI logic and separates it from the Streamlit UI.
 
 ---
 
-## Technologies Used
-- Python
-- Streamlit
-- SQLite
-- Pandas
-- Matplotlib
+## Streamlit Refactor
+All Streamlit pages use:
+- Model objects instead of raw database tuples
+- Service classes instead of direct SQL queries
+- Session state for authentication and AI chat
 
 ---
 
 ## How to Run
-```bash
-streamlit run Home.py
+
+1. Install dependencies:
+   pip install streamlit pandas matplotlib
+
+2. Run the application:
+   streamlit run Home.py
+
+---
+
+## Notes
+- AI Assistant uses a placeholder implementation (Week 11 requirement).
+- The architecture is designed for scalability and maintainability.
+- This project demonstrates core OOP principles taught in Week 11.
+

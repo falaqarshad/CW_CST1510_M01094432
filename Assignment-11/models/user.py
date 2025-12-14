@@ -13,7 +13,9 @@ class User:
         return self.__role
 
     def verify_password(self, plain_password: str, hasher) -> bool:
-        """Check if a plain-text password matches this user's stored hash."""
+        """Check if a plain-text password matches this user's stored hash.
+        The hasher object must provide a check_password method.
+        """
         return hasher.check_password(plain_password, self.__password_hash)
 
     def __str__(self) -> str:
